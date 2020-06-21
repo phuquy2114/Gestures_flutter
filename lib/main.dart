@@ -37,8 +37,15 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             RaisedButton(
-              child: Text("Inkwell"),
-              onPressed: () {},
+              child: Text("RaisedButton"),
+              onPressed: () {
+                // using Scaffold
+                Scaffold.of(context)
+                    .showSnackBar(SnackBar(content: Text("Raise Button")));
+              },
+            ),
+            SizedBox(
+              height: 40,
             ),
             InkWell(
               onTap: () {
@@ -46,17 +53,22 @@ class _MyHomePageState extends State<MyHomePage> {
                 Scaffold.of(context).showSnackBar(
                     SnackBar(content: Text("Leaning click listener ")));
               },
-              child: Text("Click"),
+              child: Text("InkWell"),
+            ),
+            SizedBox(
+              height: 40,
             ),
             GestureDetector(
               onTap: () {
                 print("GestureDetector");
+                Scaffold.of(context).showSnackBar(
+                    SnackBar(content: Text("GestureDetector Button ")));
               },
               child: Container(
                 padding: EdgeInsets.all(20.0),
                 decoration:
                     BoxDecoration(borderRadius: BorderRadius.circular(14.0)),
-                child: Text("My Button"),
+                child: Text("GestureDetector"),
               ),
             )
           ],
